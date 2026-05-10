@@ -132,6 +132,18 @@
       </div>
     </div>
   </header>
+<!-- Hero altında hızlı sosyal CTA -->
+<div class="d-flex justify-content-center gap-2 mt-4" data-aos="fade-up">
+  <a class="btn btn-outline-light btn-sm" href="https://www.instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-instagram me-2"></i> Instagram
+  </a>
+  <a class="btn btn-outline-light btn-sm" href="https://www.tiktok.com/@your_tiktok_handle" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-music-note-beamed me-2"></i> TikTok
+  </a>
+  <a class="btn btn-outline-light btn-sm" href="https://www.youtube.com/@your_youtube_channel" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-youtube me-2"></i> YouTube
+  </a>
+</div>
 
   <!-- SERVICES -->
   <section id="services" class="py-5">
@@ -279,12 +291,42 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer py-4">
-    <div class="container text-center">
-      <p class="mb-1">© 2026 Codexia Tech</p>
-      <small class="text-muted">Modüler, güvenli ve çok dilli dijital çözümler • <a href="https://www.linkedin.com/company/codexia-tech/" target="_blank" rel="noopener">LinkedIn</a></small>
+<!-- Sosyal Footer (index.html içinde footer yerine veya altına ekle) -->
+<footer class="footer py-4">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div class="mb-2 mb-md-0 text-center text-md-start">
+      <p class="mb-0">© 2026 Codexia Tech</p>
+      <small class="text-muted">Modüler, güvenli ve çok dilli dijital çözümler • Kahramanmaraş, Türkiye</small>
     </div>
-  </footer>
+
+    <div class="text-center">
+      <div class="d-flex gap-3 justify-content-center align-items-center">
+        <!-- Replace URLs with your actual handles -->
+        <a href="https://www.instagram.com/your_instagram_handle" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="Instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@your_tiktok_handle" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="TikTok">
+          <!-- TikTok icon fallback using SVG if not available in bootstrap-icons -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v10.5A4.5 4.5 0 1 0 13.5 18V8h3V3h-7z"/></svg>
+        </a>
+
+        <a href="https://www.youtube.com/@your_youtube_channel" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="YouTube">
+          <i class="bi bi-youtube"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/company/codexia-tech/" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+
+        <a href="https://github.com/CodexiaTechHQ" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
