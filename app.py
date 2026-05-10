@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session,Response
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os 
@@ -40,6 +40,12 @@ with app.app_context():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/ads.txt')
+def ads_txt():
+    ads_content = "google.com, pub-5538025628685948, DIRECT, f08c47fec0942fa0"
+    return Response(ads_content, mimetype='text/plain')
 
 # --- İLETİŞİM FORMU ROTASI (Veriyi Kalıcı Olarak Kaydeder) ---
 @app.route('/api/contact', methods=['POST'])
