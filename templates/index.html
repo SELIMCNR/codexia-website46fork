@@ -290,42 +290,104 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-<!-- Sosyal Footer (index.html içinde footer yerine veya altına ekle) -->
-<footer class="footer py-4">
+<!-- LIGHT FOOTER -->
+<footer class="footer py-5">
   <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-    <div class="mb-2 mb-md-0 text-center text-md-start">
-      <p class="mb-0">© 2026 Codexia Tech</p>
+    <div class="mb-3 mb-md-0 text-center text-md-start">
+      <p class="mb-1 fw-semibold">© 2026 Codexia Tech</p>
       <small class="text-muted">Modüler, güvenli ve çok dilli dijital çözümler • Kahramanmaraş, Türkiye</small>
     </div>
 
     <div class="text-center">
       <div class="d-flex gap-3 justify-content-center align-items-center">
-        <!-- Replace URLs with your actual handles -->
-        <a href="https://www.instagram.com/codexiatechhq" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="Instagram">
+        <a href="https://www.instagram.com/codexiatechhq" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
           <i class="bi bi-instagram"></i>
         </a>
 
-        <a href="https://www.tiktok.com/@codexiatech" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="TikTok">
-          <!-- TikTok icon fallback using SVG if not available in bootstrap-icons -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v10.5A4.5 4.5 0 1 0 13.5 18V8h3V3h-7z"/></svg>
+        <a href="https://www.tiktok.com/@codexiatech" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+          <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v10.5A4.5 4.5 0 1 0 13.5 18V8h3V3h-7z"/></svg>
         </a>
 
-        <a href="https://www.youtube.com/@CodexiaTechofic" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="YouTube">
+        <a href="https://www.youtube.com/@CodexiaTechofic" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
           <i class="bi bi-youtube"></i>
         </a>
 
-        <a href="https://www.linkedin.com/company/codexia-tech/" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/company/codexia-tech/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
           <i class="bi bi-linkedin"></i>
         </a>
 
-        <a href="https://github.com/CodexiaTechHQ" target="_blank" rel="noopener noreferrer" class="text-muted fs-5" aria-label="GitHub">
+        <a href="https://github.com/CodexiaTechHQ" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
           <i class="bi bi-github"></i>
         </a>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- FOOTER STYLES (place in <style> veya site CSS dosyanıza) -->
+<style>
+  .footer{
+    background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
+    color: #0b1220;
+  }
+
+  .footer p, .footer small { color: #0b1220; opacity: .85; }
+
+  .social-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    border-radius:10px;
+    background: rgba(13,110,253,0.06);
+    color: #0d6efd;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    text-decoration:none;
+  }
+
+  .social-link .bi, .social-link .icon-svg{
+    font-size:1.15rem;
+    line-height:1;
+  }
+
+  .social-link:hover{
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(13,110,253,0.10);
+    background: linear-gradient(135deg, rgba(13,110,253,0.10), rgba(58,123,213,0.06));
+    color: #0b2bff;
+  }
+
+  /* renkli küçük accent'ler (opsiyonel) */
+  .social-link[aria-label="Instagram"]{ background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af); color:#fff; }
+  .social-link[aria-label="TikTok"]{ background: linear-gradient(45deg,#010101,#69C9D0); color:#fff; }
+  .social-link[aria-label="YouTube"]{ background: #ff0000; color:#fff; }
+  .social-link[aria-label="LinkedIn"]{ background: #0a66c2; color:#fff; }
+  .social-link[aria-label="GitHub"]{ background: #0d1117; color:#fff; }
+
+  /* responsive spacing */
+  @media (max-width:575px){
+    .social-link{ width:40px; height:40px; }
+    .footer .container{ gap:12px; }
+  }
+</style>
+
+<!-- OPTIONAL: small JS to add subtle entrance animation (place before </body>) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const links = document.querySelectorAll('.social-link');
+    links.forEach((el, i) => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(8px)';
+      setTimeout(() => {
+        el.style.transition = 'opacity .45s ease, transform .45s cubic-bezier(.2,.9,.2,1)';
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
+      }, 120 * i);
+    });
+  });
+</script>
 
 
   <!-- SCRIPTS -->
