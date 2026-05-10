@@ -1,290 +1,329 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- Global pazar için varsayılanı İngilizce yapıyoruz -->
+<html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Codexia | Architecture of Digital Innovation</title>
-    
-    <!-- Meta Tags for SEO -->
-    <meta name="description" content="Custom Desktop (PyQt), Web (Flask) and AI solutions. Codexia codes your business future.">
-    
-    <!-- Bootstrap & Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codexia Tech - Landing Page</title>
 
-    <style>
-        :root {
-            --bg-dark: #080c10;
-            --card-bg: rgba(26, 44, 58, 0.4);
-            --accent-blue: #4dd0e1;
-            --accent-orange: #ff9800;
-            --text-main: #f8f9fa;
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        /* Smooth Scrolling */
-        html { scroll-behavior: smooth; }
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-        /* Modern Glass Navbar */
-        .navbar {
-            background-color: rgba(8, 12, 16, 0.8) !important;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
-        }
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-        .logo-text {
-            color: var(--accent-blue) !important;
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
-        }
+  <style>
+    :root{
+      --brand: #0d6efd;
+      --muted: #6c757d;
+      --bg: #f8f9fa;
+      --card-shadow: 0 8px 30px rgba(13,110,253,0.06);
+    }
+    html,body{height:100%}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-        /* Hero Section with Animated Gradient */
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: radial-gradient(circle at top right, rgba(77, 208, 225, 0.1), transparent),
-                        radial-gradient(circle at bottom left, rgba(255, 152, 0, 0.05), transparent);
-        }
+    /* NAVBAR */
+    .navbar-brand{letter-spacing:0.4px}
+    .navbar.scrolled{
+      background: rgba(13,110,253,0.95) !important;
+      transition: background .3s ease;
+      box-shadow: 0 6px 20px rgba(13,110,253,0.08);
+    }
+    .navbar .nav-link{color:rgba(255,255,255,0.95)}
+    .navbar .nav-link:hover{opacity:.9}
 
-        .hero-title {
-            font-weight: 800;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    /* HERO */
+    header.hero{
+      background: linear-gradient(135deg, rgba(13,110,253,0.95) 0%, rgba(58,123,213,0.95) 100%);
+      color: #fff;
+      padding: 5.5rem 0;
+      position:relative;
+      overflow:hidden;
+    }
+    header.hero .display-4{font-weight:700;line-height:1.05}
+    header.hero .lead{opacity:.95}
 
-        /* Service Cards (Glassmorphism) */
-        .service-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2.5rem;
-            height: 100%;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+    /* subtle animated background shapes */
+    .hero-shape{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(60px);
+      opacity:.12;
+      transform:translate3d(0,0,0);
+    }
+    .hero-shape.s1{width:420px;height:420px;background:#ffffff;right:-80px;top:-60px}
+    .hero-shape.s2{width:260px;height:260px;background:#000000;left:-60px;bottom:-40px;opacity:.06}
 
-        .service-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 20px 40px rgba(77, 208, 225, 0.1);
-            background: rgba(26, 44, 58, 0.6);
-        }
+    /* SERVICES */
+    .card.h-100{border:0;border-radius:12px;box-shadow:var(--card-shadow);transition:transform .28s ease, box-shadow .28s ease}
+    .card.h-100:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(13,110,253,0.12)}
+    .card .card-title{font-weight:600}
 
-        .icon-box {
-            width: 70px;
-            height: 70px;
-            background: rgba(77, 208, 225, 0.1);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--accent-blue);
-            font-size: 1.8rem;
-        }
+    /* CONTACT FORM */
+    .form-control:focus{box-shadow:0 0 0 .15rem rgba(13,110,253,0.12);border-color:var(--brand)}
+    .btn-primary{background:var(--brand);border:0;box-shadow:0 8px 24px rgba(13,110,253,0.12)}
+    .footer{background:#0b1220;color:#cfe3ff}
 
-        /* Modern Inputs */
-        .form-control, .form-select {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            color: #fff;
-            border-radius: 12px;
-        }
-
-        .form-control:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent-blue);
-            color: #fff;
-            box-shadow: none;
-        }
-
-        /* Buttons */
-        .btn-primary-custom {
-            background: var(--accent-blue);
-            color: var(--bg-dark);
-            font-weight: 700;
-            border-radius: 12px;
-            padding: 12px 30px;
-            border: none;
-            transition: 0.3s;
-        }
-
-        .btn-primary-custom:hover {
-            background: #fff;
-            transform: scale(1.02);
-        }
-
-        footer {
-            border-top: 1px solid var(--glass-border);
-            background: #040608;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .social-link:hover {
-            background: var(--accent-blue);
-            color: var(--bg-dark);
-            transform: translateY(-3px);
-        }
-    </style>
+    /* responsive tweaks */
+    @media (max-width:767px){
+      header.hero{padding:3.5rem 0}
+      .display-4{font-size:1.6rem}
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
     <div class="container">
-        <a class="navbar-brand logo-text" href="#">CODEXIA</a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto gap-lg-3">
-                <li class="nav-item"><a class="nav-link" href="#services">Solutions</a></li>
-                <li class="nav-item"><a class="nav-link" href="#stack">Stack</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="btn btn-outline-info btn-sm px-3" href="/admin">Portal</a></li>
-            </ul>
-        </div>
+      <a class="navbar-brand fw-bold" href="#">Codexia Tech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#services">Hizmetler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projeler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">İletişim</a></li>
+          <li class="nav-item ms-2"><a class="btn btn-outline-light btn-sm" href="/admin"><i class="bi bi-lock-fill me-1"></i> Admin</a></li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<!-- Hero Section -->
-<header class="hero-section">
+  <!-- HERO -->
+  <header class="hero text-center text-white">
+    <div class="hero-shape s1"></div>
+    <div class="hero-shape s2"></div>
+
+    <div class="container" data-aos="fade-up" data-aos-duration="900">
+      <h1 class="display-4 fw-bold">Global kullanıcılar için güvenli, modüler ve çok dilli çözümler</h1>
+      <p class="lead mt-3">Web, mobil, masaüstü, Unity oyun, yapay zeka ve siber güvenlik odaklı ürünler — hızlı prototip, güvenli üretim.</p>
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="#contact" class="btn btn-light btn-lg shadow-sm">Teklif Al</a>
+        <a href="#projects" class="btn btn-outline-light btn-lg">Projelerimizi Gör</a>
+      </div>
+
+      <!-- quick stats -->
+      <div class="row mt-5 justify-content-center text-center">
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="mb-0">9+</h3>
+          <p class="text-white-50 small mb-0">Canlı GitHub Projesi</p>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="350">
+          <h3 class="mb-0">MVP</h3>
+          <p class="text-white-50 small mb-0">Demo & Prototipler</p>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="500">
+          <h3 class="mb-0">Global</h3>
+          <p class="text-white-50 small mb-0">Çok dilli hedef</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-5">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <h1 class="hero-title">Engineering The <br>Digital Future.</h1>
-                <p class="lead text-white-50 mb-5 fs-5">
-                    Premium desktop automation with PyQt, scalable web architectures with Flask, and AI-driven growth for global enterprises.
-                </p>
-                <div class="d-flex gap-3">
-                    <a href="#contact" class="btn btn-primary-custom">Start a Project</a>
-                    <a href="#services" class="btn btn-outline-light rounded-3 px-4">View Expertise</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold">Hizmetlerimiz</h2>
+        <p class="text-muted">Modüler çözümlerimizle ürününüzü hızla pazara çıkarın.</p>
+      </div>
 
-<!-- Services Section -->
-<section id="services" class="py-5">
-    <div class="container py-5">
-        <div class="text-center mb-5">
-            <h6 class="text-info fw-bold text-uppercase">What We Offer</h6>
-            <h2 class="display-5 fw-bold">Core Capabilities</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="mb-3"><i class="bi bi-cloud-fill fs-2 text-primary"></i></div>
+              <h5 class="card-title">SaaS & PaaS</h5>
+              <p class="card-text text-muted">Ölçeklenebilir, modüler SaaS platformları; kurumsal entegrasyonlar ve SLA destekleri.</p>
+            </div>
+          </div>
         </div>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="icon-box"><i class="fas fa-microchip"></i></div>
-                    <h4 class="fw-bold">Desktop Systems</h4>
-                    <p class="text-white-50">Advanced PyQt/Python automation for local high-performance data management.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="icon-box" style="color:var(--accent-orange); background:rgba(255,152,0,0.1)"><i class="fas fa-layer-group"></i></div>
-                    <h4 class="fw-bold">Web Ecosystems</h4>
-                    <p class="text-white-50">Robust Flask backends designed for global scale and security.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="icon-box" style="color:#4caf50; background:rgba(76,175,80,0.1)"><i class="fas fa-brain"></i></div>
-                    <h4 class="fw-bold">AI Integration</h4>
-                    <p class="text-white-50">Smart automation and machine learning models to boost operational speed.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-5">
-    <div class="container py-5">
-        <div class="service-card border-0 p-lg-5">
-            <div class="row g-5">
-                <div class="col-lg-5">
-                    <h2 class="fw-bold mb-4">Let's Build <br>Something Great.</h2>
-                    <p class="text-white-50 mb-4">Ready to upgrade your workflow? Our team is standing by to architect your solution.</p>
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="fas fa-paper-plane text-info me-3"></i>
-                        <span>codexiatechhq@gmail.com</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <i class="fas fa-phone text-info me-3"></i>
-                        <span>+90 (531) 383 00 02</span>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <form action="/api/contact" method="POST" class="row g-3">
-                        <div class="col-md-6">
-                            <input type="text" name="name" class="form-control p-3" placeholder="Full Name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" name="email" class="form-control p-3" placeholder="Email Address" required>
-                        </div>
-                        <div class="col-12">
-                            <select name="service" class="form-select p-3" required>
-                                <option value="">Select Service</option>
-                                <option value="desktop">Desktop Software</option>
-                                <option value="web">Web Development</option>
-                                <option value="ai">AI & Automation</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <textarea name="message" class="form-control p-3" rows="4" placeholder="Briefly describe your vision..." required></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary-custom w-100">Send Proposal Request</button>
-                        </div>
-                    </form>
-                </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="mb-3"><i class="bi bi-robot fs-2 text-primary"></i></div>
+              <h5 class="card-title">Yapay Zeka</h5>
+              <p class="card-text text-muted">Kişiselleştirme, öneri motorları ve güvenlik içgörüleri için model entegrasyonları.</p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
 
-<!-- Footer -->
-<footer class="py-5">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="mb-3"><i class="bi bi-shield-lock-fill fs-2 text-primary"></i></div>
+              <h5 class="card-title">Siber Güvenlik</h5>
+              <p class="card-text text-muted">OWASP checklist, manuel senaryolar ve CI/CD entegrasyonlu güvenlik testleri.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up">
+        <h2 class="fw-bold">GitHub Projelerimiz</h2>
+        <p class="text-muted">Canlı repolarımızdan seçilmiş örnekler.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Project cards (example list) -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Codexia E-Ticaret</h5>
+              <p class="card-text text-muted">Modüler HTML e-ticaret şablonu; çoklu dil ve ödeme akışları.</p>
+              <a href="https://github.com/CodexiaTechHQ/codexia_website_eticaret_46_website" class="stretched-link" target="_blank" rel="noopener">GitHub'da Gör</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">CodexiaPOS (Demo)</h5>
+              <p class="card-text text-muted">Küçük işletmeler için Python tabanlı POS demo sürümü.</p>
+              <a href="https://github.com/CodexiaTechHQ/CodexiaPOS-Demo-Surum" class="stretched-link" target="_blank" rel="noopener">GitHub'da Gör</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Codexia Clinic App</h5>
+              <p class="card-text text-muted">Klinik yönetimi için prototip uygulama (Python).</p>
+              <a href="https://github.com/CodexiaTechHQ/Codexia-Clinic-App" class="stretched-link" target="_blank" rel="noopener">GitHub'da Gör</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- add more project cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+              <h3 class="fw-bold mb-3">İletişim</h3>
+              <p class="text-muted mb-4">Teklif almak veya iş birliği için formu doldurun. En kısa sürede dönüş yapacağız.</p>
+
+              <form action="/api/contact" method="POST" class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="name">Ad Soyad</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <div class="invalid-feedback">Lütfen adınızı girin.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="email">E-posta</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="invalid-feedback">Geçerli bir e-posta girin.</div>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label" for="service">Hizmet</label>
+                    <select class="form-select" id="service" name="service" required>
+                      <option value="">Seçiniz...</option>
+                      <option value="SaaS">SaaS</option>
+                      <option value="AI">Yapay Zeka</option>
+                      <option value="Cybersecurity">Siber Güvenlik</option>
+                    </select>
+                    <div class="invalid-feedback">Lütfen bir hizmet seçin.</div>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label" for="message">Mesajınız</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    <div class="invalid-feedback">Mesajınızı yazın.</div>
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100">Gönder</button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="mt-3 text-muted small">
+                <i class="bi bi-geo-alt-fill me-1"></i> Kahramanmaraş, Türkiye &nbsp; • &nbsp;
+                <i class="bi bi-link-45deg me-1"></i> <a href="https://codexia-landing-page.onrender.com/" target="_blank" rel="noopener">codexia-landing-page.onrender.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer py-4">
     <div class="container text-center">
-        <div class="mb-4">
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <p class="text-white-50 small">&copy; 2025 CODEXIA. All rights reserved.</p>
+      <p class="mb-1">© 2026 Codexia Tech</p>
+      <small class="text-muted">Modüler, güvenli ve çok dilli dijital çözümler • <a href="https://www.linkedin.com/company/codexia-tech/" target="_blank" rel="noopener">LinkedIn</a></small>
     </div>
-</footer>
+  </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+
+    // Navbar background on scroll
+    const nav = document.getElementById('mainNav');
+    const onScroll = () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Bootstrap form validation
+    (function () {
+      'use strict'
+      const forms = document.querySelectorAll('.needs-validation')
+      Array.from(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })();
+  </script>
 </body>
 </html>
